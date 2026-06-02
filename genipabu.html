@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Genipabu | Norte Sul Passeios RN</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f7fb;
+    overflow-x:hidden;
+}
+
+/* CORES */
+
+:root{
+    --laranja:#ff7a00;
+    --turquesa:#19d3da;
+    --azul:#06233f;
+    --branco:#ffffff;
+}
+
+/* HEADER */
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    background:rgba(6,35,63,.92);
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.navbar{
+    max-width:1300px;
+    margin:auto;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo h1{
+    color:#fff;
+    font-size:1.1rem;
+    line-height:1.2;
+}
+
+.menu-btn{
+    color:#fff;
+    font-size:2rem;
+}
+
+/* HERO */
+
+.hero{
+    height:75vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.hero video{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(.7);
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to bottom,
+    rgba(6,35,63,.55),
+    rgba(25,211,218,.25),
+    rgba(255,122,0,.30));
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+
+.hero-content span{
+    background:rgba(255,255,255,.15);
+    padding:10px 20px;
+    border-radius:50px;
+    backdrop-filter:blur(10px);
+    display:inline-block;
+    margin-bottom:20px;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.hero-content h2{
+    font-size:4rem;
+    margin-bottom:20px;
+    font-weight:800;
+    text-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+.hero-content p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:90px 20px;
+}
+
+/* CARD */
+
+.info-card{
+    background:#fff;
+    border-radius:35px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    border:3px solid rgba(255,122,0,.2);
+    margin-bottom:50px;
+}
+
+.info-header{
+    background:linear-gradient(45deg,var(--laranja),#ffae00);
+    padding:28px;
+    text-align:center;
+}
+
+.info-header h2{
+    color:#fff;
+    font-size:2.2rem;
+    font-weight:800;
+}
+
+/* SLIDER */
+
+.slider{
+    position:relative;
+    overflow:hidden;
+}
+
+.slides{
+    display:flex;
+    transition:.5s ease;
+}
+
+.slides img{
+    width:100%;
+    height:550px;
+    object-fit:cover;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:65px;
+    height:65px;
+    border:none;
+    border-radius:50%;
+    background:var(--laranja);
+    color:#fff;
+    font-size:1.5rem;
+    cursor:pointer;
+    z-index:5;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+.dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding:25px;
+}
+
+.dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#d0d0d0;
+    cursor:pointer;
+}
+
+.dot.active{
+    background:var(--laranja);
+}
+
+/* CONTENT */
+
+.content{
+    padding:45px;
+}
+
+.section{
+    margin-bottom:45px;
+}
+
+.section h3{
+    color:var(--laranja);
+    font-size:2rem;
+    margin-bottom:25px;
+}
+
+.section p,
+.section li{
+    color:#444;
+    line-height:1.9;
+    font-size:1.08rem;
+}
+
+.section ul{
+    list-style:none;
+}
+
+.section li{
+    margin-bottom:18px;
+}
+
+.section li i{
+    color:#31d463;
+    margin-right:10px;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    margin-top:50px;
+}
+
+.cta a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    background:#25d366;
+    color:#fff;
+    text-decoration:none;
+    padding:22px 38px;
+    border-radius:70px;
+    font-size:1.2rem;
+    font-weight:700;
+    transition:.4s;
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.cta a:hover{
+    transform:translateY(-5px);
+}
+
+/* WHATS FIXO */
+
+.fixed-whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    background:#25d366;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+    text-decoration:none;
+    z-index:999;
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* FOOTER */
+
+footer{
+    background:linear-gradient(135deg,#06233f,#0b4e72);
+    color:#fff;
+    padding:60px 20px;
+    text-align:center;
+}
+
+footer h3{
+    margin-bottom:15px;
+    font-size:2rem;
+}
+
+footer p{
+    color:#d9edf0;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+.hero-content h2{
+    font-size:2.5rem;
+}
+
+.slides img{
+    height:320px;
+}
+
+.content{
+    padding:30px;
+}
+
+.info-header h2{
+    font-size:1.7rem;
+}
+
+.section h3{
+    font-size:1.5rem;
+}
+
+.prev,
+.next{
+    width:50px;
+    height:50px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="logo.jpeg">
+
+            <h1>
+                Rota potiguar 84<br>
+                Passeios RN
+            </h1>
+        </div>
+
+        <div class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <video autoplay muted loop playsinline>
+
+        <source src="buggy.mp4" type="video/mp4">
+
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <span>
+            🏜️ Passeio Premium em Genipabu
+        </span>
+
+        <h2>Genipabu</h2>
+
+        <p>
+            Explore as famosas dunas de Genipabu com emoção, aventura e paisagens cinematográficas pelo litoral norte do RN.
+        </p>
+
+    </div>
+
+</section>
+
+<div class="container">
+
+    <div class="info-card">
+
+        <div class="info-header">
+            <h2>PASSEIO GENIPABU</h2>
+        </div>
+
+        <div class="slider">
+
+            <div class="slides" id="slides">
+
+                <img src="https://tse3.mm.bing.net/th/id/OIP.JxeCEBGzaNa-cSTdPysn6QHaFi?r=0&cb=thfvnextfalcon&rs=1&pid=ImgDetMain&o=7&rm=3">
+
+                <img src="https://penaareiapasseios.com.br/wp-content/uploads/2024/07/passeio-de-buggy-em-natal-1.jpg">
+
+                <img src="https://th.bing.com/th/id/R.a106693c83283fe6ce7c25c2d2632381?rik=u57EqNx8JBWIOQ&pid=ImgRaw&r=0">
+
+                <img src="https://tse3.mm.bing.net/th/id/OIP.8yGRt7RYQamhUUP6-9gBNAHaD2?r=0&cb=thfvnextfalcon&rs=1&pid=ImgDetMain&o=7&rm=3">
+
+            </div>
+
+            <button class="prev" onclick="moveSlide(-1)">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <button class="next" onclick="moveSlide(1)">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+        </div>
+
+        <div class="dots">
+
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+
+        </div>
+
+        <div class="content">
+
+            <div class="section">
+
+                <h3>🌞 Roteiro</h3>
+
+                <ul>
+
+                    <li><i class="fa-solid fa-check"></i> Passeio pelas praias do litoral norte.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Dunas móveis e lagoas paradisíacas.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Genipabu, Pitangui e Jacumã.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Passeio de buggy com emoção.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Paradas para fotos incríveis.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Possibilidade de aerobunda e esquibunda.</li>
+
+                </ul>
+
+            </div>
+
+            <div class="section">
+
+                <h3>📌 Informações Gerais</h3>
+
+                <ul>
+
+                    <li><i class="fa-solid fa-check"></i> Saídas diárias.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Duração aproximada: 06h a 07h.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Saída entre 08:00h e 08:30h.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Retorno entre 15:00h e 15:30h.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Passeio privativo ou compartilhado.</li>
+
+                </ul>
+
+            </div>
+
+            <div class="section">
+
+                <h3>✅ O que inclui</h3>
+
+                <ul>
+
+                    <li><i class="fa-solid fa-check"></i> Transporte de buggy.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Bugueiro credenciado.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Seguro passageiro.</li>
+
+                </ul>
+
+            </div>
+
+            <div class="section">
+
+                <h3>❌ O que não inclui</h3>
+
+                <ul>
+
+                    <li><i class="fa-solid fa-check"></i> Taxa ambiental/balsa.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Alimentação e bebidas.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Aerobunda, esquibunda e kamikaze.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Serviços terceirizados.</li>
+
+                </ul>
+
+            </div>
+
+            <div class="section">
+
+                <h3>🎒 Recomendações</h3>
+
+                <p>
+                    Utilizar roupas leves, traje de banho, óculos escuros, protetor solar e levar pouca bagagem para maior conforto.
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>⚠️ Importante</h3>
+
+                <p>
+                    O buggy possui capacidade para até 4 passageiros e será conduzido por bugueiro credenciado. Algumas taxas são cobradas à parte.
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>📍 Local de Encontro</h3>
+
+                <p>
+                    Pegamos e deixamos nos principais hotéis e pousadas de Ponta Negra, Via Costeira e Praia dos Artistas.
+                </p>
+
+            </div>
+
+            <div class="cta">
+
+                <a href="https://wa.me/5584998283409?text=Olá! Quero reservar o passeio para Genipabu." target="_blank">
+
+                    <i class="fab fa-whatsapp"></i>
+
+                    RESERVAR AGORA PELO WHATSAPP
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+
+    <h3>Norte e Sul Passeios RN</h3>
+
+    <p>
+        Experiências incríveis pelos melhores destinos do Rio Grande do Norte.
+    </p>
+
+</footer>
+
+<a href="https://wa.me/5584998283409?text=Olá! Quero reservar um passeio." class="fixed-whatsapp" target="_blank">
+
+    <i class="fab fa-whatsapp"></i>
+
+</a>
+
+<script>
+
+let currentSlide = 0;
+
+const slides = document.getElementById('slides');
+
+const dots = document.querySelectorAll('.dot');
+
+function updateSlider(){
+
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    dots[currentSlide].classList.add('active');
+
+}
+
+function moveSlide(direction){
+
+    const totalSlides = document.querySelectorAll('.slides img').length;
+
+    currentSlide += direction;
+
+    if(currentSlide < 0){
+        currentSlide = totalSlides - 1;
+    }
+
+    if(currentSlide >= totalSlides){
+        currentSlide = 0;
+    }
+
+    updateSlider();
+
+}
+
+setInterval(() => {
+    moveSlide(1);
+}, 5000);
+
+</script>
+
+</body>
+</html>

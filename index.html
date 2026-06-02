@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Norte Sul Passeios RN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(to bottom,#ffffff,#eef8ff);
+    color:#1b1b1b;
+    overflow-x:hidden;
+}
+
+:root{
+    --primary:#ff7a00;
+    --secondary:#19d3da;
+    --dark:#06233f;
+    --light:#ffffff;
+    --gray:#6e7681;
+}
+
+/* HEADER */
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    transition:.4s;
+    background:rgba(6,35,63,0.82);
+    backdrop-filter:blur(12px);
+}
+
+header.scrolled{
+    background:rgba(6,35,63,.95);
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.navbar{
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+.logo h1{
+    color:#fff;
+    font-size:1.2rem;
+    font-weight:700;
+    line-height:1.2;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition:.3s;
+    position:relative;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    background:var(--secondary);
+    left:0;
+    bottom:-6px;
+    transition:.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.mobile-btn{
+    display:none;
+    font-size:1.8rem;
+    color:#fff;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(135deg,#19d3da,#0fb9c2,#ff7a00);
+    height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.hero video{
+    filter:saturate(1.2) contrast(1.05) brightness(.8);
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to bottom, rgba(6,35,63,.55), rgba(25,211,218,.35), rgba(255,122,0,.28));
+}
+
+.hero-content{
+    max-width:950px;
+    backdrop-filter:blur(2px);
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+    animation:fadeUp 1.3s ease;
+}
+
+.hero-content h2{
+    background:linear-gradient(45deg,#ffffff,#dffcff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 10px 30px rgba(0,0,0,.35);
+    font-size:4rem;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    max-width:750px;
+    margin:auto auto 35px;
+    backdrop-filter:blur(5px);
+    font-size:1.15rem;
+    color:#f0f0f0;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 32px;
+    border-radius:60px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.4s;
+}
+
+.btn-primary{
+    background:linear-gradient(45deg,#ff7a00,#ff9f43,#19d3da);
+    color:#fff;
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,153,255,.4);
+}
+
+.btn-outline{
+    border:2px solid #fff;
+    color:#fff;
+}
+
+.btn-outline:hover{
+    background:#fff;
+    color:#111;
+}
+
+/* SECTION */
+section{
+    position:relative;
+    padding:90px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    color:#06233f;
+    position:relative;
+    font-size:2.8rem;
+    color:var(--dark);
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#4f6b7a;
+    color:var(--gray);
+}
+
+/* ABOUT */
+.about{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+
+.about-text h3{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    color:#5b6470;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+/* CARDS */
+.cards-grid{
+    align-items:stretch;
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    overflow:hidden;
+    border:1px solid rgba(25,211,218,.15);
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+    transition:.4s;
+    position:relative;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.01);
+    box-shadow:0 20px 50px rgba(6,35,63,.18);
+}
+
+.card img{
+    transition:1s ease;
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    position:relative;
+    z-index:2;
+    padding:25px;
+}
+
+.card-content h3{
+    color:#06233f;
+    margin-bottom:10px;
+    font-size:1.5rem;
+}
+
+.card-content p{
+    color:#68707a;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.card-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.small-btn{
+    padding:12px 22px;
+    border-radius:50px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.more-btn{
+    background:linear-gradient(45deg,#06233f,#19d3da);
+    color:#fff;
+}
+
+.more-btn:hover{
+    background:#0d1f38;
+}
+
+.whatsapp-btn{
+    background:linear-gradient(45deg,#ff7a00,#ff9340);
+    color:#fff;
+    text-decoration:none;
+}
+
+.whatsapp-btn:hover{
+    transform:scale(1.04);
+}
+
+/* MODAL */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+    background:#fff;
+    width:100%;
+    max-width:950px;
+    border-radius:25px;
+    overflow:hidden;
+    animation:zoom .4s ease;
+    max-height:90vh;
+    overflow-y:auto;
+}
+
+.modal-header{
+    padding:25px;
+    background:linear-gradient(45deg,var(--primary),var(--secondary));
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.close{
+    font-size:1.8rem;
+    cursor:pointer;
+}
+
+.modal-body{
+    padding:30px;
+}
+
+.modal-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin-top:30px;
+}
+
+.modal-gallery img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+.roteiro{
+    margin-top:20px;
+}
+
+.roteiro li{
+    margin-bottom:12px;
+    color:#555;
+}
+
+/* CTA */
+.cta{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#06233f,#0b5d8a,#ff7a00);
+    background:linear-gradient(45deg,#031321,#0c2e52);
+    color:#fff;
+    text-align:center;
+    border-radius:35px;
+    max-width:1250px;
+    margin:0 auto 90px;
+    padding:70px 30px;
+}
+
+.cta h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.cta p{
+    max-width:700px;
+    margin:auto;
+    margin-bottom:35px;
+    line-height:1.8;
+}
+
+/* FOOTER */
+footer{
+    position:relative;
+    background:linear-gradient(135deg,#04101d,#06233f);
+    color:#fff;
+    padding:50px 20px 30px;
+}
+
+.footer-content{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:40px;
+}
+
+.footer-logo h3{
+    margin-bottom:15px;
+    font-size:1.5rem;
+}
+
+.footer-links a,
+.footer-contact a{
+    display:block;
+    color:#cfd7df;
+    text-decoration:none;
+    margin-bottom:12px;
+    transition:.3s;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover{
+    color:#00d2ff;
+}
+
+.socials{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.socials a{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#0f2236;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.socials a:hover{
+    transform:translateY(-5px);
+    background:var(--primary);
+}
+
+.copy{
+    text-align:center;
+    margin-top:50px;
+    color:#98a7b7;
+    font-size:.95rem;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes zoom{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* RESPONSIVO */
+/* BOTÃO FIXO WHATSAPP */
+.fixed-whatsapp{
+    backdrop-filter:blur(10px);
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#25d366;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:2rem;
+    text-decoration:none;
+    z-index:3000;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* HERO PREMIUM */
+.hero-floating-card{
+    position:absolute;
+    right:50px;
+    bottom:60px;
+    z-index:3;
+    display:flex;
+    gap:25px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    padding:22px 28px;
+    border-radius:24px;
+    backdrop-filter:blur(14px);
+    color:#fff;
+    animation:fadeUp 1.5s ease;
+}
+
+.hero-floating-card div{
+    display:flex;
+    flex-direction:column;
+}
+
+.hero-floating-card strong{
+    font-size:1.5rem;
+    color:#fff;
+}
+
+.hero-floating-card span{
+    color:#eafcff;
+    font-size:.95rem;
+}
+
+/* BENEFÍCIOS */
+.benefits{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.benefit-card{
+    background:#fff;
+    padding:35px;
+    border-radius:24px;
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+    text-align:center;
+    transition:.4s;
+    border:1px solid rgba(25,211,218,.12);
+}
+
+.benefit-card:hover{
+    transform:translateY(-10px);
+}
+
+.benefit-card i{
+    font-size:2.8rem;
+    margin-bottom:20px;
+    background:linear-gradient(45deg,#19d3da,#ff7a00);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.benefit-card h3{
+    margin-bottom:12px;
+    color:#06233f;
+}
+
+.benefit-card p{
+    color:#648091;
+    line-height:1.7;
+}
+
+/* INSTAGRAM FEED */
+.instagram-grid{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+}
+
+.instagram-grid img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:24px;
+    transition:.5s;
+}
+
+.instagram-grid img:hover{
+    transform:scale(1.04);
+}
+
+@media(max-width:900px){
+
+.hero-floating-card{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    margin-top:35px;
+    flex-direction:column;
+}
+
+
+.hero-content h2{
+    font-size:2.7rem;
+}
+
+.nav-links{
+    position:absolute;
+    top:90px;
+    right:-100%;
+    background:#07111f;
+    width:260px;
+    flex-direction:column;
+    padding:30px;
+    height:calc(100vh - 90px);
+    transition:.4s;
+}
+
+.nav-links.active{
+    right:0;
+}
+
+.mobile-btn{
+    display:block;
+}
+
+.cta h2{
+    font-size:2rem;
+}
+
+.section-title h2{
+    font-size:2.1rem;
+}
+
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.jpeg" alt="Rota potiguar 84 Passeios RN">
+            <h1>Rota potiguar <br>Passeios RN</h1>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#passeios">Passeios</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+
+        <div class="mobile-btn" id="mobileBtn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<section class="hero" id="inicio">
+
+    <div class="hero-floating-card">
+        <div>
+            <strong>+5 Mil</strong>
+            <span>Turistas Atendidos</span>
+        </div>
+
+        <div>
+            <strong>4.9 ★</strong>
+            <span>Avaliações Google</span>
+        </div>
+    </div>
+    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200">
+        <source src="https://cdn.pixabay.com/video/2022/10/17/135201-761476632_large.mp4" type="video/mp4">
+        <source src="https://cdn.coverr.co/videos/coverr-beautiful-beach-aerial-shot-1565327988702?download=1080p" type="video/mp4">
+        <source src="https://cdn.coverr.co/videos/coverr-beautiful-beach-aerial-shot-1565327988702?download=1080p" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.12);padding:12px 24px;border-radius:60px;margin-bottom:25px;border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px);">
+            <i class="fa-solid fa-location-dot" style="color:#ff7a00;"></i>
+            <span style="font-weight:600;">Os melhores passeios do Rio Grande do Norte</span>
+        </div>
+        <h2>Explore o Melhor do Rio Grande do Norte</h2>
+        <p>
+            Viva experiências inesquecíveis com a Norte Sul Passeios RN. Passeios paradisíacos,
+            aventuras incríveis e roteiros exclusivos pelas praias mais lindas do Nordeste.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#passeios" class="btn btn-primary">Ver Passeios</a>
+            <a href="https://wa.me/5584998283409?text=Olá! Quero reservar um passeio." target="_blank" class="btn btn-outline">
+                Reservar Agora
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="sobre">
+    <div class="section-title">
+        <h2>Sobre a Agência</h2>
+        <p>Turismo com qualidade, segurança e experiências inesquecíveis.</p>
+    </div>
+
+    <div class="about">
+        <img src="logo.jpeg" alt="Passeio RN">
+
+        <div class="about-text">
+            <h3>Rota Potiguar 84 Passeios RN</h3>
+            <p>
+                Somos especialistas em turismo receptivo no Rio Grande do Norte,
+                oferecendo passeios incríveis com conforto, segurança e atendimento personalizado.
+                 </p>
+
+             <p>
+
+               Trabalhamos com experiências completas para praias, dunas, mergulhos,
+                lagoas, aventuras 4x4 e os destinos mais procurados do Nordeste.
+            </p>
+
+            <p>
+              
+            </p>
+
+            <a href="https://wa.me/5584998283409?text=Olá! Gostaria de conhecer os passeios." target="_blank" class="btn btn-primary">
+                Falar no WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="section-title">
+        <h2>Por que escolher a Norte Sul Passeios RN?</h2>
+        <p>Experiências premium, atendimento rápido e os melhores destinos do Nordeste.</p>
+    </div>
+
+    <div class="benefits">
+
+        <div class="benefit-card">
+            <i class="fa-solid fa-shield-heart"></i>
+            <h3>Segurança</h3>
+            <p>
+                Passeios organizados com conforto, suporte e segurança para toda família.
+            </p>
+        </div>
+
+        <div class="benefit-card">
+            <i class="fa-solid fa-camera-retro"></i>
+            <h3>Experiência Cinematográfica</h3>
+            <p>
+                Destinos paradisíacos e roteiros incríveis para viver momentos inesquecíveis.
+            </p>
+        </div>
+
+        <div class="benefit-card">
+            <i class="fa-solid fa-headset"></i>
+            <h3>Suporte Rápido</h3>
+            <p>
+                Atendimento humanizado e reservas rápidas diretamente pelo WhatsApp.
+            </p>
+        </div>
+
+        <div class="benefit-card">
+            <i class="fa-solid fa-star"></i>
+            <h3>Alta Avaliação</h3>
+            <p>
+                Clientes satisfeitos e experiências avaliadas com excelência no Google.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="instagram-section">
+    <div class="section-title">
+        <h2>Siga Nosso Instagram</h2>
+        <p>Veja experiências reais dos nossos clientes e acompanhe os melhores destinos.</p>
+    </div>
+
+    <div class="instagram-grid">
+        <img src="https://marazulreceptivo.com.br/wp-content/uploads/2020/08/caption-6-1024x768.jpg" alt="Instagram 1">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.DTtSOARuD9ycXPIM9S-PagHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Instagram 2">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.Hb1YbhA33AKv1-lUogg0egHaEj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Instagram 3">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.aFyUgTwJ1Kjb0aOkipyXdAHaGu?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Instagram 4">
+    </div>
+
+    <div class="cards-grid" style="margin-top:35px;">
+        <div class="card">
+            <img src="logo.jpeg" alt="rotapotiguar_84">
+            <div class="card-content">
+                <h3>@rotapotiguar_84</h3>
+                <p>
+                    Conteúdo diário, reels cinematográficos, bastidores e promoções exclusivas.
+                </p>
+
+                <div class="card-buttons">
+                    <a href="https://www.instagram.com/rotapotiguar_84?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="small-btn whatsapp-btn">
+                        Acessar Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="passeios">
+    <div class="section-title">
+        <h2>Passeios em Destaque</h2>
+        <p>Escolha sua próxima aventura.</p>
+    </div>
+
+    <div class="cards-grid">
+
+        <div class="card">
+            <img src="https://guia.elasviajando.com.br/wp-content/uploads/2025/04/Santuario-Ecologico-de-Pipa.jpg" alt="Pipa RN">
+
+            <div class="card-content">
+                <h3>Pipa RN</h3>
+                <p>
+                    Praias paradisíacas, falésias incríveis e experiências inesquecíveis.
+                </p>
+
+                <div class="card-buttons">
+                    <a href="pipaRN.html" class="small-btn more-btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center;">Saiba Mais</a>
+
+                    <a class="small-btn whatsapp-btn" href="https://wa.me/5584998283409?text=Olá! Quero fechar o passeio para Pipa." target="_blank">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://4.bp.blogspot.com/-EqBwT6JZyPI/W-dQzpQhfnI/AAAAAAAAPS4/2saduX4uMU0T3cE2fBE3WPFuw2G3q0BigCLcBGAs/s1600/Buggy%2BGenipabu.jpg" alt="Genipabu">
+
+            <div class="card-content">
+                <h3>Genipabu</h3>
+                <p>
+                    Emoção nas dunas, passeio de buggy e paisagens cinematográficas.
+                </p>
+
+                <div class="card-buttons">
+                    <a href="genipabu.html" class="small-btn more-btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center;">Saiba Mais</a>
+
+                    <a class="small-btn whatsapp-btn" href="https://wa.me/5584998283409?text=Olá! Quero reservar o passeio para Genipabu." target="_blank">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.getyourguide.com/img/tour/0fb5c102fece880cd7edb248c2a8be4dbfc73c524f03f06d1f5173937d1587af.jpg/148.jpg" alt="Rio do Fogo">
+
+            <div class="card-content">
+                <h3>Rio do Fogo </h3>
+                <p>
+                    Um dos destinos mais charmosos do RN com praias tranquilas e pôr do sol incrível.
+                </p>
+
+                <div class="card-buttons">
+                    <a href="rio do fogo.html" class="small-btn more-btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center;">Saiba Mais</a>
+
+                    <a class="small-btn whatsapp-btn" href="https://wa.me/5584998283409?text=Olá! Quero reservar o passeio para São Miguel do Gostoso." target="_blank">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.9z7rAy4Cf7p2ObcVHLF3UgHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Maracajau">
+
+            <div class="card-content">
+                <h3>Maracajaú</h3>
+                <p>
+                    Mergulhos incríveis nos parrachos e águas cristalinas.
+                </p>
+
+                <div class="card-buttons">
+                    <a href="maracajau.html" class="small-btn more-btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center;">Saiba Mais</a>
+
+                    <a class="small-btn whatsapp-btn" href="https://wa.me/5584998283409?text=Olá! Quero reservar o passeio para Maracajaú." target="_blank">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://vidasemparedes.com.br/wp-content/uploads/2020/02/saomigueldogostoso-vidasemparedes-5.jpg" alt="São Miguel do Gostoso">
+
+            <div class="card-content">
+                <h3>São Miguel do Gostoso</h3>
+                <p>
+                    Um dos destinos mais charmosos do RN com praias tranquilas e pôr do sol incrível.
+                </p>
+
+                <div class="card-buttons">
+                    <a href="gostoso.html" class="small-btn more-btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center;">Saiba Mais</a>
+
+                    <a class="small-btn whatsapp-btn" href="https://wa.me/5584998283409?text=Olá! Quero reservar o passeio para São Miguel do Gostoso." target="_blank">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.kpqCvGeK5XF17tvgRigMagHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Passeio das aguas ">
+
+            <div class="card-content">
+                <h3>passeio das aguas</h3>
+                <p>
+                    Um dos destinos mais charmosos do RN com praias tranquilas e pôr do sol incrível.
+                </p>
+
+                <div class="card-buttons">
+                    <a href="passeio das aguas.html" class="small-btn more-btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center;">Saiba Mais</a>
+
+                    <a class="small-btn whatsapp-btn" href="https://wa.me/5584998283409?text=Olá! Quero reservar o passeio para São Miguel do Gostoso." target="_blank">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.3hHDOuqHZGCmeUY6i-9ekAHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Rota do Sol">
+
+            <div class="card-content">
+                <h3>Rota dos Nativos </h3>
+                <p>
+                    Um dos destinos mais charmosos do RN com praias tranquilas e pôr do sol incrível.
+                </p>
+
+                <div class="card-buttons">
+                    <a href="rota do sol.html" class="small-btn more-btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center;">Saiba Mais</a>
+
+                    <a class="small-btn whatsapp-btn" href="https://wa.me/5584998283409?text=Olá! Quero reservar o passeio para São Miguel do Gostoso." target="_blank">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.EccPQx74raFrjxMWPQFxXgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Galinhos">
+
+            <div class="card-content">
+                <h3>Galinhos</h3>
+                <p>
+                    Um paraíso escondido com dunas, salinas e praias praticamente desertas.
+                </p>
+
+                <div class="card-buttons">
+                    <a href="galinhos.html" class="small-btn more-btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center;">Saiba Mais</a>
+
+                    <a class="small-btn whatsapp-btn" href="https://wa.me/5584998283409?text=Olá! Quero reservar o passeio para Galinhos." target="_blank">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section-avaliacoes">
+    <div class="section-title">
+        <h2>Avaliações dos Clientes</h2>
+        <p>Experiências reais de quem já viveu aventuras com a Norte Sul Passeios RN.</p>
+    </div>
+
+    <div class="cards-grid">
+
+        <div class="card">
+            <div class="card-content">
+                <h3><i class="fa-brands fa-google"></i> Carlos Henrique</h3>
+                <p>
+                    “Experiência incrível. Atendimento impecável e passeio maravilhoso em Genipabu.”
+                </p>
+                <strong>★★★★★</strong>
+                <p style="margin-top:15px;color:#0099ff;">
+                    Avaliação via Google
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3><i class="fa-brands fa-google"></i> Mariana Alves</h3>
+                <p>
+                    “Tudo muito organizado. O passeio para Pipa foi perfeito do início ao fim.”
+                </p>
+                <strong>★★★★★</strong>
+                <p style="margin-top:15px;color:#0099ff;">
+                    Conta Google Verificada
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3><i class="fa-brands fa-google"></i> Rafael Souza</h3>
+                <p>
+                    “Melhor agência de turismo do RN. Atendimento rápido e passeio cinematográfico.”
+                </p>
+                <strong>★★★★★</strong>
+                <p style="margin-top:15px;color:#0099ff;">
+                    Avaliação Google Maps
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="cta">
+    <h2>Seu próximo destino começa aqui</h2>
+    <p>
+        Descubra praias paradisíacas, aventuras emocionantes e experiências únicas.
+        Reserve agora mesmo seu passeio com a Rota potiguar 84 Passeios RN.
+    </p>
+
+    <a href="https://wa.me/5584998283409?text=Olá! Quero fechar um passeio." target="_blank" class="btn btn-primary">
+        Fechar Passeio
+    </a>
+</div>
+
+<footer id="contato">
+    <div class="footer-content">
+
+        <div class="footer-logo">
+            <h3>Rota potiguar 84 Passeios RN</h3>
+            <p>
+                Especialistas em experiências incríveis no Rio Grande do Norte.
+            </p>
+
+            <div class="socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h3>Links Rápidos</h3>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#passeios">Passeios</a>
+            <a href="#contato">Contato</a>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contato</h3>
+            <a href="tel:+558498668090">+55 84 99828-3409</a>
+            <a href="mailto:contato@nortesulpasseiosrn.com">contato@rotapotiguarpasseiosrn.com</a>
+            <a href="https://wa.me/5584998283409" target="_blank">Atendimento WhatsApp</a>
+        </div>
+
+    </div>
+
+    <div class="copy">
+        © 2026 Rota potiguar 84 Passeios RN — Todos os direitos reservados.
+    </div>
+</footer>
+
+<a href="https://wa.me/5584998283409?text=Olá! Quero reservar um passeio." target="_blank" class="fixed-whatsapp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+/* ===== SEO DINÂMICO ===== */
+document.title = 'Rota potihuar 84  Passeios RN | Passeios no Rio Grande do Norte';
+
+const metaDescription = document.createElement('meta');
+metaDescription.name = 'description';
+metaDescription.content = 'Passeios incríveis no Rio Grande do Norte com a Norte Sul Passeios RN. Turismo premium, experiências paradisíacas e reservas online.';
+document.head.appendChild(metaDescription);
+
+/* ===== CATÁLOGO DINÂMICO ===== */
+const passeios = [
+    {
+        nome:'Pipa RN',
+        categoria:'Praias',
+        preco:'R$ 120,00'
+    },
+    {
+        nome:'Genipabu',
+        categoria:'Dunas',
+        preco:'R$ 150,00'
+    },
+    {
+        nome:'Maracajaú',
+        categoria:'Mergulho',
+        preco:'R$ 180,00'
+    }
+];
+
+console.log('Catálogo carregado:', passeios);
+
+/* ===== SISTEMA DE RESERVAS ===== */
+function reservarPasseio(nomePasseio){
+    const numero = '558498668090';
+    const mensagem = `Olá! Quero reservar o passeio para ${nomePasseio}.`;
+
+    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`,'_blank');
+}
+
+/* ===== PAINEL ADMINISTRATIVO ===== */
+const admin = {
+    empresa:'Norte Sul Passeios RN',
+    totalPasseios:3,
+    reservasHoje:12,
+    faturamento:'R$ 4.500'
+};
+
+console.log('Painel Administrativo:', admin);
+
+/* ===== HEADER ===== */
+const header = document.getElementById('header');
+
+window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ===== MENU MOBILE ===== */
+const mobileBtn = document.getElementById('mobileBtn');
+const navLinks = document.getElementById('navLinks');
+
+mobileBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+/* ===== ANIMAÇÕES CINEMATOGRÁFICAS ===== */
+const revealElements = document.querySelectorAll('.card, .about, .cta, .section-title');
+
+const revealOnScroll = () => {
+    revealElements.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+
+        if(elementTop < windowHeight - 100){
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0px)';
+        }
+    });
+};
+
+revealElements.forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(60px)';
+    element.style.transition = 'all 1s ease';
+});
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
